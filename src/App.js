@@ -22,6 +22,7 @@ function App() {
 
 
   return <div>
+    <p>test</p>
     <p>{`left X: ${gamepads.axes[0]}`}</p>
     <p>{`left Y: ${gamepads.axes[1]}`}</p>
     <p>{`right X: ${gamepads.axes[2]}`}</p>
