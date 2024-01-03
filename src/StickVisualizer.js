@@ -10,7 +10,7 @@ const StickVisualizer = ({ x, y }) => {
     const innerCircleY = y * outerCircleRadius;
 
     return (
-        <div style={{ position: 'relative', width: outerCircleRadius * 2, height: outerCircleRadius * 2, borderRadius: '50%', backgroundColor: '#eee', margin: 'auto' }}>
+        <div style={{ position: 'relative', width: outerCircleRadius * 2, height: outerCircleRadius * 2, borderRadius: '50%', backgroundColor: '#eee',  }}>
             <div
                 style={{
                     position: 'absolute',
