@@ -6,23 +6,25 @@ import StickVisualizer from "./StickVisualizer";
 
 
 
-
-
 function App() {
-  const [gamepads, setGamepads] = useState([])
+  const [gamepads, setGamepads] = useState()
   useGamepads(_gamepads=>{
     // console.log(_gamepads)
     setGamepads(_gamepads[0])
   })
+
+  // console.log(gamepads)
   // useEffect(() => {
   //
   // }, []);
   // console.log(typeof (gamepads.axes[1]))
 
+  if(!gamepads){
+    return <div>test</div>
 
+  }
 
   return <div>
-    <p>test</p>
     <p>{`left X: ${gamepads.axes[0]}`}</p>
     <p>{`left Y: ${gamepads.axes[1]}`}</p>
     <p>{`right X: ${gamepads.axes[2]}`}</p>
