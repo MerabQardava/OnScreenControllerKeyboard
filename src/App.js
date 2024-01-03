@@ -55,13 +55,13 @@ function App() {
 
     useGamepads(_gamepads => {
         setGamepads(_gamepads[Object.keys(_gamepads)[0]])
-        // console.log(_gamepads[Object.keys(_gamepads)[0]].buttons[6])
+        // console.log(_gamepads[Object.keys(_gamepads)[0]].buttons[4])
         setRightArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[15].pressed)
         setLeftArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[14].pressed)
         setTopArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[12].pressed)
         setBottomArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[13].pressed)
-        setLeftTrigger(_gamepads[Object.keys(_gamepads)[0]].buttons[6].pressed)
-        setRightTrigger(_gamepads[Object.keys(_gamepads)[0]].buttons[7].pressed)
+        setLeftTrigger(_gamepads[Object.keys(_gamepads)[0]].buttons[4].pressed)
+        setRightTrigger(_gamepads[Object.keys(_gamepads)[0]].buttons[5].pressed)
         setRightPosition({
             x: _gamepads[Object.keys(_gamepads)[0]].axes[2], y: _gamepads[Object.keys(_gamepads)[0]].axes[3]
         })

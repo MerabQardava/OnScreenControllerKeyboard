@@ -1,9 +1,10 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow,rightTrigger,leftTrigger}) {
 // Ref to store the reference to the input element
     const inputRef = useRef();
-
+    const [milliseconds, setMilliseconds] = useState(0);
+    const [intervalId, setIntervalId] = useState()
     useEffect(() => {
         if(letter){
 
@@ -38,18 +39,47 @@ function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow
             moveCaretToStart()
         }
     }, [bottomArrow]);
+    // useEffect(() => {
+    //     // console.log("test")
+    //     if(rightTrigger===true){
+    //         if(milliseconds>250){
+    //
+    //         }
+    //     }
+    // }, [rightTrigger]);
+
     useEffect(() => {
-        // console.log("test")
-        if(rightTrigger===true){
+        if(rightTrigger){
             deleteAtCaret()
         }
-    }, [rightTrigger]);
+    }, [rightTrigger, milliseconds>15?milliseconds:""]);
+
     useEffect(() => {
         // console.log("test")
         if(leftTrigger===true){
             insertSpaceAtCaret()
         }
     }, [leftTrigger]);
+
+    useEffect(() => {
+        let intervalId;
+
+
+        if (rightTrigger) {
+            // If startCounting becomes true, start or resume counting
+            intervalId = setInterval(() => {
+                setMilliseconds(prevMilliseconds => prevMilliseconds + 1);
+            }, 50);
+        } else {
+            // If startCounting becomes false, reset the count to 0
+            setMilliseconds(0);
+        }
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [rightTrigger]);
+
 
     const moveCaretToStart = () => {
         moveCaret(0);
