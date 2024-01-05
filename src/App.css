@@ -4,7 +4,84 @@
     background-color: red;
 }
 
+/*#sus {*/
+/*    background: conic-gradient(*/
+/*            #fff 0deg 45deg,*/
+/*            #000 45deg 90deg,*/
+/*            #fff 90deg 135deg,*/
+/*            #000 135deg 180deg,*/
+/*            #fff 180deg 225deg,*/
+/*            #000 225deg 270deg,*/
+/*            #fff 270deg 315deg,*/
+/*            #000 315deg 360deg*/
+/*    );*/
+/*}*/
+
+
+.sector {
+    border: 1px solid #000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*clip-path: polygon(50% 50%, 100% 0, 100% 100%);*/
+    clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+}
+.sector:nth-child(1) { background-color: #fff; transform: rotate(0deg); }
+.sector:nth-child(2) { background-color: #000; transform: rotate(45deg); }
+.sector:nth-child(3) { background-color: #fff; transform: rotate(90deg); }
+.sector:nth-child(4) { background-color: #000; transform: rotate(135deg); }
+.sector:nth-child(5) { background-color: #fff; transform: rotate(180deg); }
+.sector:nth-child(6) { background-color: #000; transform: rotate(225deg); }
+.sector:nth-child(7) { background-color: #fff; transform: rotate(270deg); }
+.sector:nth-child(8) { background-color: #000; transform: rotate(315deg); }
+
 .App{
     width: 100vw;
     height: 100vh;
+}
+
+#keyboardContainer{
+    /*background-color: #333333;*/
+    width: 750px;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    /*margin-top: 150px;*/
+    position: relative;
+}
+
+#leftBubble{
+    position: absolute;
+    left: 0;
+}#topBubble{
+    position: absolute;
+    /*left: 0;*/
+    top: 0;
+}#rightBubble{
+    position: absolute;
+    /*left: 0;*/
+    right: 0;
+}
+#bottomBubble{
+    position: absolute;
+    /*left: 0;*/
+    bottom: 0;
+}#topLeftBubble{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}#topRightBubble{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+}#bottomLeftBubble{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+}#bottomRightBubble{
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
 }

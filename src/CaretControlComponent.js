@@ -166,10 +166,6 @@ function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow
                 placeholder="Enter your text"
                 style={{ margin: '10px 0' }}
             />
-            <div>
-                <button onClick={handleMoveLeft}>Move Left</button>
-                <button onClick={handleMoveRight}>Move Right</button>
-            </div>
         </div>
     );
 }

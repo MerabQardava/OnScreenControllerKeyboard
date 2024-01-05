@@ -1,0 +1,38 @@
+.letter{
+    position: absolute;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+#sideBubbleContainer{
+    background-color: #120e8f;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid black;
+
+}
+
+#left{
+    top: 50%;
+    left:12.5%;
+}
+#top{
+    left: 50%;
+    top:12.5%;
+}
+#right{
+    top: 50%;
+    left:87.5%;
+}
+#bottom{
+    left: 50%;
+    top:87.5%;
+}

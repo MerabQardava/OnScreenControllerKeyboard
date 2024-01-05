@@ -3,6 +3,7 @@ import {useGamepads} from "react-gamepads";
 import {useEffect, useState} from "react";
 import StickVisualizer from "./StickVisualizer";
 import CaretControlComponent from "./CaretControlComponent";
+import SideBubble from "./SideBubble";
 
 const numbersWithAlphabet = {
     11: 'a',
@@ -144,17 +145,46 @@ function App() {
     }
 
     return <div>
-        <p>{`left X: ${leftPosition.x}`}</p>
-        <p>{`left value: ${leftValue}`}</p>
-        <p>{`left Y: ${leftPosition.y}`}</p>
-        <p>{`right X: ${rightPosition.x}`}</p>
+        {/*<p>{`left X: ${leftPosition.x}`}</p>*/}
+        {/*<p>{`left value: ${leftValue}`}</p>*/}
+        {/*<p>{`left Y: ${leftPosition.y}`}</p>*/}
+        {/*<p>{`right X: ${rightPosition.x}`}</p>*/}
         <p>{`right value: ${rightValue}`}</p>
-        <p>{`right Y: ${rightPosition.y}`}</p>
-        <StickVisualizer x={rightPosition.x} y={rightPosition.y}/>
-        <StickVisualizer x={leftPosition.x} y={leftPosition.y}/>
+        {/*<p>{`right Y: ${rightPosition.y}`}</p>*/}
+        {/*<StickVisualizer x={leftPosition.x} y={leftPosition.y}/>*/}
         <CaretControlComponent letter={letter} rightTrigger={rightTrigger} leftTrigger={leftTrigger} topArrow={topArrow}
                                bottomArrow={bottomArrow} leftArrow={leftArrow}
                                rightArrow={rightArrow}/>
+        <div id="keyboardContainer">
+            <div id="leftBubble">
+                <SideBubble left={"a"} top={"b"} right={"c"} bottom={"d"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <div id="topBubble">
+                <SideBubble left={"e"} top={"f"} right={"g"} bottom={"h"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <div id="rightBubble">
+                <SideBubble left={"i"} top={"j"} right={"k"} bottom={"l"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <div id="bottomBubble">
+                <SideBubble left={"m"} top={"n"} right={"o"} bottom={"p"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <div id="topLeftBubble">
+                <SideBubble left={"u"} top={"v"} right={"w"} bottom={"x"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <div id="topRightBubble">
+                <SideBubble left={"y"} top={"z"} right={"?"} bottom={"!"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <div id="bottomLeftBubble">
+                <SideBubble left={"q"} top={"r"} right={"s"} bottom={"t"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <div id="bottomRightBubble">
+                <SideBubble left={";"} top={"/"} right={"?"} bottom={"-"}  x={leftPosition.x} y={leftPosition.y}/>
+            </div>
+            <StickVisualizer x={rightPosition.x} y={rightPosition.y}/>
+
+        </div>
+
+
 
 
     </div>;
