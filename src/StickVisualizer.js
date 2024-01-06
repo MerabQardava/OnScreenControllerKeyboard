@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StickVisualizer = ({x, y}) => {
+const StickVisualizer = ({x, y,value}) => {
     // Assuming x and y range from -1 to 1
     const outerCircleRadius = 100;
     const innerCircleRadius = 20;
@@ -8,6 +8,7 @@ const StickVisualizer = ({x, y}) => {
     // Calculate the position of the inner circle based on x and y values
     const innerCircleX = x * outerCircleRadius;
     const innerCircleY = y * outerCircleRadius;
+    console.log(value);
 
     return (<div style={{
         position: 'relative',
@@ -25,14 +26,14 @@ const StickVisualizer = ({x, y}) => {
             backgroundColor: '#eee',
             transform: "rotate(22.5deg)",
             background: `conic-gradient(
-                #fff 0deg 45deg,
-                #000 45deg 90deg,
-                #fff 90deg 135deg,
-                #000 135deg 180deg,
-                #fff 180deg 225deg,
-                #000 225deg 270deg,
-                #fff 270deg 315deg,
-                #000 315deg 360deg
+                #${value===4?"120e8f":"fff"} 0deg 45deg,
+                #${value===5?"120e8f":"fff"} 45deg 90deg,
+                #${value===6?"120e8f":"fff"} 90deg 135deg,
+                #${value===7?"120e8f":"fff"} 135deg 180deg,
+                #${value===8?"120e8f":"fff"} 180deg 225deg,
+                #${value===1?"120e8f":"fff"} 225deg 270deg,
+                #${value===2?"120e8f":"fff"} 270deg 315deg,
+                #${value===3?"120e8f":"fff"} 315deg 360deg
             )`
         }}
         />
