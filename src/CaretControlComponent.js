@@ -159,7 +159,7 @@ function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow
     };
 
     return (
-        <div>
+        <div style={{width:"100%", display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"25px"}}>
             <input
                 ref={inputRef}
                 type="text"

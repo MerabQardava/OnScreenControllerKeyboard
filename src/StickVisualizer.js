@@ -8,7 +8,7 @@ const StickVisualizer = ({x, y,value}) => {
     // Calculate the position of the inner circle based on x and y values
     const innerCircleX = x * outerCircleRadius;
     const innerCircleY = y * outerCircleRadius;
-    console.log(value);
+    // console.log(value);
 
     return (<div style={{
         position: 'relative',

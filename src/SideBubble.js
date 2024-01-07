@@ -1,10 +1,17 @@
 import React from 'react';
 import "./SideBubble.css"
 
-const SideBubble = ({x, y, left, top, right, bottom,active}) => {
+const SideBubble = ({x, y, left, top, right, bottom,active,capital}) => {
 
     const outerCircleRadius = 50;
     const innerCircleRadius = 10;
+
+    if(capital){
+        left=left.toUpperCase()
+        right=right.toUpperCase()
+        top=top.toUpperCase()
+        bottom=bottom.toUpperCase()
+    }
 
 
     const innerCircleX =active?x * outerCircleRadius:0;

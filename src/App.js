@@ -53,11 +53,13 @@ function App() {
     const [bottomArrow, setBottomArrow] = useState(false)
     const [rightTrigger, setRightTrigger] = useState(false)
     const [leftTrigger, setLeftTrigger] = useState(false)
+    const [leftBackTrigger,setLeftBackTrigger]=useState(false)
 
     useGamepads(_gamepads => {
         setGamepads(_gamepads[Object.keys(_gamepads)[0]])
-        // console.log(_gamepads[Object.keys(_gamepads)[0]].buttons[4])
+        // console.log(_gamepads[Object.keys(_gamepads)[0]].buttons[6].pressed)
         setRightArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[15].pressed)
+        setLeftBackTrigger(_gamepads[Object.keys(_gamepads)[0]].buttons[6].pressed)
         setLeftArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[14].pressed)
         setTopArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[12].pressed)
         setBottomArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[13].pressed)
@@ -146,39 +148,39 @@ function App() {
 
     return <div>
         {/*<p>{`left X: ${leftPosition.x}`}</p>*/}
-        <p>{`left value: ${leftValue}`}</p>
+        {/*<p>{`left value: ${leftValue}`}</p>*/}
         {/*<p>{`left Y: ${leftPosition.y}`}</p>*/}
         {/*<p>{`right X: ${rightPosition.x}`}</p>*/}
         {/*<p>{`right value: ${rightValue}`}</p>*/}
         {/*<p>{`right Y: ${rightPosition.y}`}</p>*/}
         {/*<StickVisualizer x={leftPosition.x} y={leftPosition.y}/>*/}
-        <CaretControlComponent letter={letter} rightTrigger={rightTrigger} leftTrigger={leftTrigger} topArrow={topArrow}
+        <CaretControlComponent letter={leftBackTrigger?letter?.toUpperCase():letter} rightTrigger={rightTrigger} leftTrigger={leftTrigger} topArrow={topArrow}
                                bottomArrow={bottomArrow} leftArrow={leftArrow}
                                rightArrow={rightArrow}/>
         <div id="keyboardContainer">
             <div id="leftBubble">
-                <SideBubble value={rightValue} active={rightValue === 1} left={"a"} top={"b"} right={"c"} bottom={"d"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} value={rightValue} active={rightValue === 1} left={"a"} top={"b"} right={"c"} bottom={"d"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <div id="topBubble">
-                <SideBubble active={rightValue === 3}  left={"e"} top={"f"} right={"g"} bottom={"h"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} active={rightValue === 3}  left={"e"} top={"f"} right={"g"} bottom={"h"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <div id="rightBubble">
-                <SideBubble active={rightValue === 5} left={"i"} top={"j"} right={"k"} bottom={"l"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} active={rightValue === 5} left={"i"} top={"j"} right={"k"} bottom={"l"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <div id="bottomBubble">
-                <SideBubble active={rightValue === 7} left={"m"} top={"n"} right={"o"} bottom={"p"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} active={rightValue === 7} left={"m"} top={"n"} right={"o"} bottom={"p"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <div id="topLeftBubble">
-                <SideBubble active={rightValue === 2} left={"u"} top={"v"} right={"w"} bottom={"x"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} active={rightValue === 2} left={"u"} top={"v"} right={"w"} bottom={"x"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <div id="topRightBubble">
-                <SideBubble active={rightValue === 4} left={"y"} top={"z"} right={"?"} bottom={"!"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} active={rightValue === 4} left={"y"} top={"z"} right={"?"} bottom={"!"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <div id="bottomLeftBubble">
-                <SideBubble active={rightValue === 8} left={"q"} top={"r"} right={"s"} bottom={"t"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} active={rightValue === 8} left={"q"} top={"r"} right={"s"} bottom={"t"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <div id="bottomRightBubble">
-                <SideBubble active={rightValue === 6} left={";"} top={"/"} right={"?"} bottom={"-"}  x={leftPosition.x} y={leftPosition.y}/>
+                <SideBubble capital={leftBackTrigger} active={rightValue === 6} left={";"} top={"/"} right={"?"} bottom={"-"}  x={leftPosition.x} y={leftPosition.y}/>
             </div>
             <StickVisualizer value={rightValue} x={rightPosition.x} y={rightPosition.y}/>
 
