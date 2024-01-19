@@ -108,7 +108,8 @@ input{
 
 textarea {
     background: url(../public/notebook.png) repeat-y;
-    width: 600px;
+    max-width: 600px;
+    flex-grow: 1;
     height: 600px;
     font: normal 18px verdana;
     line-height: 27px;
