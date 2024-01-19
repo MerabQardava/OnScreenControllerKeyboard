@@ -16,7 +16,7 @@ function App() {
     return (
         <div>
             <Navbar page={page} setPage={setPage} />
-            {page==="Home"&&<Home/>}
+            {page==="Home"&&<Home setPage={setPage}/>}
             {page==="Demo"&&<KeyboardPage/>}
             {page==="Contact"&&<Contacts/>}
         </div>

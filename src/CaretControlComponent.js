@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow,rightTrigger,leftTrigger}) {
+function CaretControlComponent({clear,letter,rightArrow,leftArrow,topArrow,bottomArrow,rightTrigger,leftTrigger}) {
 // Ref to store the reference to the input element
     const inputRef = useRef();
     const [milliseconds, setMilliseconds] = useState(0);
@@ -62,6 +62,13 @@ function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow
     }, [leftTrigger]);
 
     useEffect(() => {
+        // console.log("test")
+        if(clear===true){
+            clearInput()
+        }
+    }, [clear]);
+
+    useEffect(() => {
         let intervalId;
 
 
@@ -106,6 +113,13 @@ function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow
             const newPosition = selectionStart + 1;
             inputRef.current.setSelectionRange(newPosition, newPosition);
         }
+    };
+
+    const clearInput = () => {
+        if(inputRef.current){
+            inputRef.current.value="";
+        }
+
     };
 
 
@@ -159,8 +173,7 @@ function CaretControlComponent({letter,rightArrow,leftArrow,topArrow,bottomArrow
     };
 
     return (
-        <div style={{width:"100%", display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"25px"}}>
-            <input
+        <div style={{width:"100%", display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"25px"}}>            <textarea
                 ref={inputRef}
                 type="text"
                 placeholder="Enter your text"

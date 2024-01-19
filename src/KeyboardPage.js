@@ -54,12 +54,14 @@ function KeyboardPage() {
     const [rightTrigger, setRightTrigger] = useState(false)
     const [leftTrigger, setLeftTrigger] = useState(false)
     const [leftBackTrigger,setLeftBackTrigger]=useState(false)
+    const [rightBackTrigger,setRightBackTrigger]=useState(false)
 
     useGamepads(_gamepads => {
         setGamepads(_gamepads[Object.keys(_gamepads)[0]])
         // console.log(_gamepads[Object.keys(_gamepads)[0]].buttons[6].pressed)
         setRightArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[15].pressed)
         setLeftBackTrigger(_gamepads[Object.keys(_gamepads)[0]].buttons[6].pressed)
+        setRightBackTrigger(_gamepads[Object.keys(_gamepads)[0]].buttons[7].pressed)
         setLeftArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[14].pressed)
         setTopArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[12].pressed)
         setBottomArrow(_gamepads[Object.keys(_gamepads)[0]].buttons[13].pressed)
@@ -73,6 +75,8 @@ function KeyboardPage() {
         })
 
     })
+
+
 
     useEffect(() => {
         if (rightPosition) {
@@ -143,7 +147,24 @@ function KeyboardPage() {
     // }, [letter]);
 
     if (!gamepads) {
-        return <div>test</div>
+        return <div id="standby">
+            <h1 className="pulse">Please Plug In A Controller</h1>
+            <div className="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+        </div>
     }
 
     return <div id="keyboardPage">
@@ -155,37 +176,42 @@ function KeyboardPage() {
         {/*<p>{`right Y: ${rightPosition.y}`}</p>*/}
         {/*<StickVisualizer x={leftPosition.x} y={leftPosition.y}/>*/}
 
-        <div id="keyboardContainer">
-            <div id="leftBubble">
-                <SideBubble capital={leftBackTrigger} value={rightValue} active={rightValue === 1} left={"a"} top={"b"} right={"c"} bottom={"d"}  x={leftPosition.x} y={leftPosition.y}/>
+        <div style={{display:"flex",width:"100%"}}>
+            <div id="keyboardContainer">
+
+                <div id="leftBubble">
+                    <SideBubble capital={leftBackTrigger} value={rightValue} active={rightValue === 1} left={"a"} top={"b"} right={"c"} bottom={"d"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <div id="topBubble">
+                    <SideBubble capital={leftBackTrigger} active={rightValue === 3}  left={"e"} top={"f"} right={"g"} bottom={"h"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <div id="rightBubble">
+                    <SideBubble capital={leftBackTrigger} active={rightValue === 5} left={"i"} top={"j"} right={"k"} bottom={"l"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <div id="bottomBubble">
+                    <SideBubble capital={leftBackTrigger} active={rightValue === 7} left={"m"} top={"n"} right={"o"} bottom={"p"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <div id="topLeftBubble">
+                    <SideBubble capital={leftBackTrigger} active={rightValue === 2} left={"u"} top={"v"} right={"w"} bottom={"x"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <div id="topRightBubble">
+                    <SideBubble capital={leftBackTrigger} active={rightValue === 4} left={"y"} top={"z"} right={"?"} bottom={"!"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <div id="bottomLeftBubble">
+                    <SideBubble capital={leftBackTrigger} active={rightValue === 8} left={"q"} top={"r"} right={"s"} bottom={"t"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <div id="bottomRightBubble">
+                    <SideBubble capital={leftBackTrigger} active={rightValue === 6} left={";"} top={"/"} right={"?"} bottom={"-"}  x={leftPosition.x} y={leftPosition.y}/>
+                </div>
+                <StickVisualizer value={rightValue} x={rightPosition.x} y={rightPosition.y}/>
+
             </div>
-            <div id="topBubble">
-                <SideBubble capital={leftBackTrigger} active={rightValue === 3}  left={"e"} top={"f"} right={"g"} bottom={"h"}  x={leftPosition.x} y={leftPosition.y}/>
-            </div>
-            <div id="rightBubble">
-                <SideBubble capital={leftBackTrigger} active={rightValue === 5} left={"i"} top={"j"} right={"k"} bottom={"l"}  x={leftPosition.x} y={leftPosition.y}/>
-            </div>
-            <div id="bottomBubble">
-                <SideBubble capital={leftBackTrigger} active={rightValue === 7} left={"m"} top={"n"} right={"o"} bottom={"p"}  x={leftPosition.x} y={leftPosition.y}/>
-            </div>
-            <div id="topLeftBubble">
-                <SideBubble capital={leftBackTrigger} active={rightValue === 2} left={"u"} top={"v"} right={"w"} bottom={"x"}  x={leftPosition.x} y={leftPosition.y}/>
-            </div>
-            <div id="topRightBubble">
-                <SideBubble capital={leftBackTrigger} active={rightValue === 4} left={"y"} top={"z"} right={"?"} bottom={"!"}  x={leftPosition.x} y={leftPosition.y}/>
-            </div>
-            <div id="bottomLeftBubble">
-                <SideBubble capital={leftBackTrigger} active={rightValue === 8} left={"q"} top={"r"} right={"s"} bottom={"t"}  x={leftPosition.x} y={leftPosition.y}/>
-            </div>
-            <div id="bottomRightBubble">
-                <SideBubble capital={leftBackTrigger} active={rightValue === 6} left={";"} top={"/"} right={"?"} bottom={"-"}  x={leftPosition.x} y={leftPosition.y}/>
-            </div>
-            <StickVisualizer value={rightValue} x={rightPosition.x} y={rightPosition.y}/>
 
         </div>
 
 
-        <CaretControlComponent letter={leftBackTrigger?letter?.toUpperCase():letter} rightTrigger={rightTrigger} leftTrigger={leftTrigger} topArrow={topArrow}
+
+        <CaretControlComponent letter={leftBackTrigger?letter?.toUpperCase():letter} clear={rightBackTrigger} rightTrigger={rightTrigger} leftTrigger={leftTrigger} topArrow={topArrow}
                                bottomArrow={bottomArrow} leftArrow={leftArrow}
                                rightArrow={rightArrow}/>
 

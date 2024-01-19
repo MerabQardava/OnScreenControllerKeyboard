@@ -45,7 +45,8 @@
 
 button{
     margin-top: 25px;
-    width: 287px;
+    /*width: 287px;*/
+    width: 22vw;
     height: 50px;
     border-radius: 50px;
     flex-shrink: 0;
@@ -109,4 +110,28 @@ button{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+
+#bottomSection h2::after{
+    margin-left: 25px;
+    content: url("../public/Arrow 1.svg");
+}
+
+
+.pulse {
+    /* Pulse animation */
+    animation: pulseAnimation 1.75s infinite;
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

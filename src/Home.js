@@ -1,6 +1,9 @@
 import React from 'react';
 import "./Home.css"
-function Home(props) {
+function Home({setPage}) {
+    function goToDemo(){
+        setPage("Demo")
+    }
     return (
         <div>
             <section id="topSection">
@@ -10,7 +13,7 @@ function Home(props) {
                     <p>Better Alternative To Conventional
                         On-Screen Keyboards For Controllers And Remotes.
                     </p>
-                    <button>Try Demo</button>
+                    <button style={{cursor:"pointer"}} onClick={goToDemo}>Try Demo</button>
                     {/*<div id="buttoncontainer"></div>*/}
                 </div>
             </section>
@@ -21,19 +24,19 @@ function Home(props) {
                         <div>
                             <img src="Pen.svg" alt=""/>
                         </div>
-                        <p>Custom Intuitive Design </p>
+                        <p><span style={{color:"#F6B100"}}>Custom</span>  Intuitive Design </p>
                     </div>
                     <div className="offer">
                         <div>
-                            <img src="Pen.svg" alt=""/>
+                            <img src="Pressure_light.svg" alt=""/>
                         </div>
-                        <p>Faster Typing Speed</p>
+                        <p><span style={{color:"#F6B100"}}>Faster</span>  Typing Speed</p>
                     </div>
                     <div className="offer">
                         <div>
-                            <img src="Pen.svg" alt=""/>
+                            <img src="group_share.svg" alt=""/>
                         </div>
-                        <p>Support For Wide Range of Devices</p>
+                        <p><span style={{color:"#F6B100"}}>Support</span> For Wide Range of Devices</p>
                     </div>
 
                 </div>
